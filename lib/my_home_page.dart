@@ -51,6 +51,15 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: ShareUtils.shareImage,
               child: const Text('通信取得画像の共有'),
             ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                ShareUtils.shareUri(
+                  Uri.parse('https://example.com'),
+                );
+              },
+              child: const Text('URI共有'),
+            ),
           ],
         ),
       ),
@@ -72,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
  * - XFile(filePath): 基本的な初期化
  * - XFile(filePath, mimeType: 'type'): MIMEタイプを指定
  * - await xFile.readAsBytes(): バイトとしてファイルを読み込み
- * - await xFile.readAsString(): テキストとしてファイルを��み込み
+ * - await xFile.readAsString(): テキストとしてファイルを読み込み
  * 
  * 注意点：
  * - ファイルパスは実在するファイルを指している必要がある

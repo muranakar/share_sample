@@ -161,4 +161,22 @@ class ShareUtils {
       print('アセット画像共有でエラーが発生しました: $e');
     }
   }
+
+  /// URIを共有するメソッド
+  /// 手順:
+  /// 1. URIを指定して共有シートを表示
+  /// 2. iOSではシステムがHTMLページを取得し、アイコンを抽出して表示
+  /// 3. iPadやMacでは共有シートのポップオーバー位置を指定可能
+  ///
+  /// [uri]: 共有するURI
+  /// [sharePositionOrigin]: 共有シートのポップオーバー位置（iPadやMacのみ）
+  static Future<ShareResult> shareUri(
+    Uri uri, {
+    Rect? sharePositionOrigin,
+  }) async {
+    return Share.shareUri(
+      uri,
+      sharePositionOrigin: sharePositionOrigin,
+    );
+  }
 }
